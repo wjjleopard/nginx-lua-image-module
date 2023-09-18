@@ -17,12 +17,13 @@ module(...,package.seeall)
 ]]
 
 enabled_log          = true
-lua_log_level        = ngx.NOTICE
-gm_path	             = '/usr/local/graphicsmagick-1.3.18/bin/gm'
+lua_log_level        = ngx.ERR
+--gm_path	             = '/usr/local/graphicsmagick-1.3.18/bin/gm'
+gm_path	             = '/usr/local/bin/gm'
 img_background_color = 'white'
 enabled_default_img  = true
-default_img_uri 	 = '/default/notfound.jpg' 
-default_uri_reg      = '_[0-9]+x[0-9]+' 
+default_img_uri 	 = '/default/404.png'
+default_uri_reg      = '_[0-9]+x[0-9]+'
 
 --[[ 
 	配置项，对目录、缩略图尺寸、裁剪类型进行配置，匹配后才进行缩略图处理
@@ -48,7 +49,7 @@ cfg = {
 			dir      = 'mall',
 			sizes    = {'130x130!','228x228!','420x420!'},
 			uri_reg  = '_[0-9]+x[0-9]+[.jpg|.png|.gif]+',
-		},		
+		},
 		{	dir   = 'default',
 			sizes = {'50x50^','100x100>','140x140$','250x250!','300x300_','350x350','80x80'},
 		}

@@ -41,6 +41,8 @@ function table.contains(table,element)
         local sizes = value['sizes']
 		local uri_reg = value['uri_reg']
         _,_,img_width,img_height = string.find(uri,''..dir..'+.*_([0-9]+)x([0-9]+)')
+		lua_log('img_width:'..img_width)
+		lua_log('img_height:'..img_height)
         if(img_width and img_height and img_crop_type==0) then
             img_size = img_width..'x'..img_height
             for _, value in pairs(sizes) do
@@ -97,7 +99,7 @@ local function generate_gm_command(img_crop_type,img_original_path,img_size,img_
 	return cmd
 end
 
-lua_log("ngx_thumbnail_root======="..ngx_thumbnail_root)
+lua_log("ngx_thumbnail_root======="..ngx_thumbnail_root,ngx.ERR)
 	
 if not table.contains(c.cfg, uri) then
     lua_log(uri..' is not match!',ngx.ERR)
