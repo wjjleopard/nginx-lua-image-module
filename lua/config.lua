@@ -2,7 +2,7 @@
 -- last update : 2014/8/21
 -- version     : 0.4.1
 
-module(...,package.seeall)
+module(..., package.seeall)
 
 --[[
 	enabled_log：			是否打开日志
@@ -16,14 +16,14 @@ module(...,package.seeall)
 		_[0-9]+x[0-9]+[.jpg|.png|.gif]+ 	对应：001.jpg_100x100.jpg
 ]]
 
-enabled_log          = true
-lua_log_level        = ngx.ERR
+enabled_log = true
+lua_log_level = ngx.ERR
 --gm_path	             = '/usr/local/graphicsmagick-1.3.18/bin/gm'
-gm_path	             = '/usr/local/bin/gm'
+gm_path = '/usr/local/bin/gm'
 img_background_color = 'white'
-enabled_default_img  = true
-default_img_uri 	 = '/default/404.png'
-default_uri_reg      = '_[0-9]+x[0-9]+'
+enabled_default_img = true
+default_img_uri = '/default/404.png'
+default_uri_reg = '_[0-9]+x[0-9]+'
 
 --[[ 
 	配置项，对目录、缩略图尺寸、裁剪类型进行配置，匹配后才进行缩略图处理
@@ -38,19 +38,19 @@ default_uri_reg      = '_[0-9]+x[0-9]+'
 	dir="default" 对应默认图片尺寸，当原图不存在时，请求该尺寸会以默认图片生成缩略图
 ]]
 cfg = {
-		{
-			dir   = 'photos',
-			sizes = {'50x50^','100x100>','140x140$','250x250!','300x300_','350x350'},
-		},
-		{	dir   = 'avatars',
-			sizes = {'50x50^','80x80'},
-		},
-		{
-			dir      = 'mall',
-			sizes    = {'130x130!','228x228!','420x420!'},
-			uri_reg  = '_[0-9]+x[0-9]+[.jpg|.png|.gif]+',
-		},
-		{	dir   = 'default',
-			sizes = {'50x50^','100x100>','140x140$','250x250!','300x300_','350x350','80x80'},
-		}
+  {
+    dir = 'photos',
+    sizes = { '50x50^', '100x100>', '140x140$', '250x250!', '300x300_', '350x350' },
+  },
+  { dir = 'avatars',
+    sizes = { '50x50^', '80x80' },
+  },
+  {
+    dir = 'mall',
+    sizes = { '130x130!', '228x228!', '420x420!' },
+    uri_reg = '_[0-9]+x[0-9]+[.jpg|.png|.gif]+',
+  },
+  { dir = 'default',
+    sizes = { '50x50^', '100x100>', '140x140$', '250x250!', '300x300_', '350x350', '80x80' },
+  }
 }
